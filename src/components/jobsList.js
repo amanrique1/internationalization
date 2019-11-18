@@ -36,12 +36,17 @@ export default class JobsList extends React.Component {
       }
     ]
   };
+  setTheme = () => {
+    let language= navigator.language||navigator.userLanguage;
+    let message=language==="en"?"thead-dark":"thead-light";
+     return message;
+};
 
   render() {
     return (
       <div>
         <table className="table">
-          <thead className={<FormattedMessage id="Header"/>}>
+          <thead className={this.setTheme()}>
             <tr>
               <th scope="col">#</th>
               <th scope="col"><FormattedMessage id="Position"/></th>
